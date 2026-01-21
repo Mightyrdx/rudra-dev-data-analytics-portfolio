@@ -41,5 +41,8 @@ Business Analytics • KPI Dashboards • Sales Reporting • Storytelling with 
 
 🔹 About Me
 
-I’m a Data Analyst with 1.5 years of experience in sales reporting, business analytics, and dashboard automation across APJ markets.
+I’m a Data Analyst with 3.6 years of experience in sales reporting, business analytics, and dashboard automation across APJ markets.
 I build practical, business-focused analytics solutions that improve visibility, efficiency, and decision-making.
+
+I have worked with Dell's tech support team, assisting them using my daily and weekly reports, and insights for 1.6 years. 
+I have worked as a business analyst intern at RACE REVA for 2 years. 
