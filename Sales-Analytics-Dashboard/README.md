@@ -65,15 +65,11 @@ Customer & product performance slices
 
 Key Insights
 
-Revenue Concentration: Over a multi-year period, total revenue of ₹985M was generated, with the Delhi NCR market contributing over 50% of revenue, though its profit margin was relatively low.
+Profit Hotspots: Some markets showed higher profit margins, highlighting where operations are most efficient.
 
-Profit Hotspots: Some markets (e.g., Bhubaneswar) showed higher profit margins, highlighting where operations are most efficient.
-
-Customer Impact: The top customers (e.g., ElectricalSara Stores) dominate revenue, revealing where retention and expansion efforts matter most.
+Customer Impact: The top customers dominate revenue, revealing where retention and expansion efforts matter most.
 
 Product Performance: Certain products, such as Prod318, contributed significantly to overall revenue, offering a cue for inventory and pricing strategies.
-
-Market Weakness: Bengaluru showed negative profit margins, indicating possible operational or pricing inefficiencies.
 
 These insights help shift strategic focus from guesswork to evidence-based action.
 
