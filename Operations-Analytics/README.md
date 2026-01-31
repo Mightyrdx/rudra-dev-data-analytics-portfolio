@@ -51,3 +51,4 @@ Install dependencies:
 pip install -r requirements.txt
 Run the Dashboard:
 streamlit run app.py
+
