@@ -1,0 +1,18 @@
+High-level Goal: Identifying high-risk patients for diabetic retinopathy and eye disease using metabolic indicators.
+
+📝 Project Overview
+This project analyzes a dataset of 20,000 patients to correlate metabolic factors (glucose, cholesterol, obesity) with eye health outcomes. It features a custom Health Risk Scoring system to prioritize patient care based on clinical severity.
+
+🛠️ Technical Stack
+Core Libraries: Pandas, NumPy, Matplotlib.
+
+Feature Engineering: Calculated metabolic_risk_count and health_risk_score from raw physiological data.
+
+Categorical Analysis: Segmented patients by BMI (Obese, Overweight, Normal, Underweight) and Blood Pressure categories.
+
+🚀 Key Implementations
+Risk Stratification: Built logic to flag "Metabolic Syndrome" based on cumulative risk factors including sugar levels and systolic/diastolic pressure.
+
+Clinical Insights: Discovered that Obese patients represent the largest segment (7,978 records), highlighting a critical demographic for preventative eye care screenings.
+
+Automated Flagging: Converted boolean health indicators into binary integers for seamless integration into machine learning training pipelines.
