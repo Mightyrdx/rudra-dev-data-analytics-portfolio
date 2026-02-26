@@ -11,40 +11,19 @@
     .hero-bg { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); }
     .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); }
     .stat-number { font-variant-numeric: tabular-nums; }
-
-    /* LOADER STYLES */
     #loader { transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
-    .binary-drop {
-      position: absolute;
-      font-family: ui-monospace, monospace;
-      color: #67e8f9;
-      text-shadow: 0 0 6px rgba(103, 232, 249, 0.7);
-      pointer-events: none;
-      animation: binary-fall linear infinite;
-    }
-    @keyframes binary-fall {
-      0%   { transform: translateY(-150px); opacity: 0; }
-      15%  { opacity: 1; }
-      85%  { opacity: 1; }
-      100% { transform: translateY(calc(100vh + 150px)); opacity: 0; }
-    }
-    #magnifier {
-      animation: magnifyScan 2.8s ease-in-out infinite;
-    }
-    @keyframes magnifyScan {
-      0%, 100% { transform: scale(1) rotate(-5deg); }
-      50%      { transform: scale(1.13) rotate(5deg); }
-    }
+    .binary-drop { position: absolute; font-family: ui-monospace, monospace; color: #67e8f9; text-shadow: 0 0 6px rgba(103,232,249,0.7); pointer-events: none; animation: binary-fall linear infinite; }
+    @keyframes binary-fall { 0% { transform: translateY(-150px); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(calc(100vh + 150px)); opacity: 0; } }
+    #magnifier { animation: magnifyScan 2.8s ease-in-out infinite; }
+    @keyframes magnifyScan { 0%,100% { transform: scale(1) rotate(-5deg); } 50% { transform: scale(1.13) rotate(5deg); } }
   </style>
 </head>
 <body class="bg-zinc-950 text-zinc-100 font-sans leading-relaxed overflow-x-hidden">
 
-  <!-- ====================== LOADING SCREEN ====================== -->
+  <!-- LOADER -->
   <div id="loader" class="fixed inset-0 bg-zinc-950 z-[9999] flex items-center justify-center overflow-hidden">
     <div id="binary-rain" class="absolute inset-0 pointer-events-none"></div>
-
     <div class="relative z-10 flex flex-col items-center w-full max-w-md">
-      <!-- SCAN PHASE -->
       <div id="scan-container" class="flex flex-col items-center">
         <div class="relative mb-8">
           <i id="magnifier" class="fas fa-search text-[148px] text-cyan-400 drop-shadow-[0_0_40px_#22d3ee]"></i>
@@ -52,14 +31,10 @@
         <p class="text-2xl font-medium tracking-[3px] text-zinc-200">SCANNING DATA STREAMS</p>
         <p class="text-cyan-400/70 mt-1 text-sm">Magnifying insights from chaos...</p>
       </div>
-
-      <!-- GRAPH TRANSITION PHASE -->
       <div id="transition-container" class="hidden flex-col items-center w-full opacity-0 transition-opacity duration-700">
         <p class="text-cyan-400 text-lg tracking-widest mb-6">INSIGHTS UNLOCKED</p>
         <canvas id="transitionChart" class="w-full max-w-xs h-64"></canvas>
       </div>
-
-      <!-- Progress -->
       <div class="mt-16 w-72">
         <div class="h-0.5 bg-zinc-800 rounded-full overflow-hidden">
           <div id="progress" class="h-full bg-gradient-to-r from-cyan-400 to-teal-400 w-0 transition-all duration-100"></div>
@@ -71,26 +46,182 @@
     </div>
   </div>
 
-  <!-- Rest of your site (same as before, only tiny clean-ups) -->
-  <!-- NAVBAR, HERO, ABOUT, EXPERIENCE, PROJECTS, SKILLS, CONTACT, FOOTER -->
-  <!-- (I kept everything identical except I moved the scripts to the very end) -->
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 w-full z-50 glass border-b border-zinc-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold tracking-tighter">Rudra<span class="text-cyan-400">.</span></div>
+      <div class="space-x-8 text-sm hidden md:flex">
+        <a href="#about" class="hover:text-cyan-400 transition">About</a>
+        <a href="#experience" class="hover:text-cyan-400 transition">Experience</a>
+        <a href="#projects" class="hover:text-cyan-400 transition">Projects</a>
+        <a href="#skills" class="hover:text-cyan-400 transition">Skills</a>
+        <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+      </div>
+      <a href="resume.pdf" download class="px-5 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-xl text-sm font-medium transition flex items-center gap-2">
+        <i class="fas fa-download"></i> Resume
+      </a>
+    </div>
+  </nav>
 
-  <!-- (Paste the entire previous site content here - navbar to footer) -->
-  <!-- For brevity in this message I'm showing only the changed parts, but the full file is ready below -->
+  <!-- HERO -->
+  <section class="hero-bg min-h-screen flex items-center pt-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-6xl md:text-7xl font-bold tracking-tighter mb-4">Rudra Dev</h1>
+        <p class="text-3xl text-cyan-400 mb-6">Data Operations Analyst</p>
+        <p class="text-xl text-zinc-400 max-w-lg mb-10">
+          2+ years turning raw data into operational clarity. Built dashboards tracking 15K tickets/month and reduced manual effort by up to 40%.
+        </p>
+        <div class="flex gap-4">
+          <a href="#projects" class="px-8 py-4 bg-white text-black rounded-2xl font-medium hover:scale-105 transition">See My Work</a>
+          <a href="#contact" class="px-8 py-4 border border-zinc-700 hover:border-cyan-400 rounded-2xl font-medium transition">Let's Connect</a>
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <img src="photo.jpg" alt="Rudra Dev" class="w-80 h-80 object-cover rounded-3xl border-4 border-cyan-500 shadow-2xl"> <!-- Change to your photo filename -->
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="max-w-7xl mx-auto px-6 mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="glass p-6 rounded-3xl text-center border border-zinc-800">
+        <div id="stat1" class="stat-number text-5xl font-bold text-cyan-400">0</div>
+        <p class="text-zinc-400 mt-2">Tickets tracked monthly</p>
+      </div>
+      <div class="glass p-6 rounded-3xl text-center border border-zinc-800">
+        <div id="stat2" class="stat-number text-5xl font-bold text-cyan-400">0</div>
+        <p class="text-zinc-400 mt-2">% critical cases prioritized</p>
+      </div>
+      <div class="glass p-6 rounded-3xl text-center border border-zinc-800">
+        <div id="stat3" class="stat-number text-5xl font-bold text-cyan-400">0</div>
+        <p class="text-zinc-400 mt-2">% less manual preprocessing</p>
+      </div>
+      <div class="glass p-6 rounded-3xl text-center border border-zinc-800">
+        <div id="stat4" class="stat-number text-5xl font-bold text-cyan-400">0</div>
+        <p class="text-zinc-400 mt-2">Years delivering impact</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="max-w-4xl mx-auto px-6 py-24">
+    <h2 class="text-4xl font-bold mb-10 text-center">Turning Data into Decisions</h2>
+    <p class="text-lg text-zinc-400 text-center max-w-2xl mx-auto">
+      Data analyst with 2+ years in SQL-driven reporting, Power BI dashboards, and operational analytics. Passionate about reducing chaos for leadership through accurate, actionable insights.
+    </p>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="bg-zinc-900 py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-12">Experience</h2>
+      <div class="space-y-12">
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-48 text-zinc-400 font-medium">Jul 2024 — Jan 2026</div>
+          <div class="flex-1 glass p-8 rounded-3xl">
+            <h3 class="text-2xl font-semibold">Senior Technician – Reporting Analytics</h3>
+            <p class="text-cyan-400">Dell Technologies • Bangalore</p>
+            <ul class="mt-6 space-y-3 text-zinc-400">
+              <li class="flex gap-3"><span class="text-emerald-400">→</span> Built & maintained Power BI + Excel dashboards for ~15K service tickets/month</li>
+              <li class="flex gap-3"><span class="text-emerald-400">→</span> SQL trend analysis identifying 10–15% repeat ticket drivers</li>
+              <li class="flex gap-3"><span class="text-emerald-400">→</span> Reduced manual analysis effort by ~30% with automated reports</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-48 text-zinc-400 font-medium">Sep 2022 — Jul 2024</div>
+          <div class="flex-1 glass p-8 rounded-3xl">
+            <h3 class="text-2xl font-semibold">Business Analytics Intern</h3>
+            <p class="text-cyan-400">RACE – REVA Academy for Corporate Excellence</p>
+            <ul class="mt-6 space-y-3 text-zinc-400">
+              <li class="flex gap-3"><span class="text-emerald-400">→</span> SQL, Python & Power BI dashboards reducing manual reporting by ~25%</li>
+              <li class="flex gap-3"><span class="text-emerald-400">→</span> Supported ETL + data validation workflows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-24 max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-12 text-center">Featured Projects</h2>
+    <div class="grid md:grid-cols-2 gap-10">
+      <div class="glass p-8 rounded-3xl border border-zinc-800 hover:border-cyan-400 transition group">
+        <h3 class="text-2xl font-semibold mb-2">Healthcare Operations Analytics</h3>
+        <p class="text-cyan-400 mb-6">Python • SQL • ETL</p>
+        <p class="text-zinc-400">Analyzed 20K patient records to identify high-risk individuals using engineered health indicators.</p>
+        <ul class="my-8 space-y-2 text-sm">
+          <li>✅ Prioritized ~35% critical cases</li>
+          <li>✅ Automated feature prep → 40% less manual effort</li>
+        </ul>
+        <canvas id="healthChart" class="mt-6"></canvas>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="text-xs px-3 py-1 bg-zinc-800 rounded-full">Python</span>
+          <span class="text-xs px-3 py-1 bg-zinc-800 rounded-full">SQL</span>
+          <span class="text-xs px-3 py-1 bg-zinc-800 rounded-full">ETL</span>
+        </div>
+      </div>
+      <div class="glass p-8 rounded-3xl border border-zinc-800 hover:border-cyan-400 transition group">
+        <h3 class="text-2xl font-semibold mb-2">Operations & Performance Dashboard</h3>
+        <p class="text-cyan-400 mb-6">Power BI • SQL • Excel</p>
+        <p class="text-zinc-400">Designed KPI dashboards covering multi-functional metrics for faster decision support.</p>
+        <ul class="my-8 space-y-2 text-sm">
+          <li>✅ Reduced manual reporting cycles</li>
+          <li>✅ Faster cross-regional performance comparison</li>
+        </ul>
+        <canvas id="bizChart" class="mt-6"></canvas>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="text-xs px-3 py-1 bg-zinc-800 rounded-full">Power BI</span>
+          <span class="text-xs px-3 py-1 bg-zinc-800 rounded-full">SQL</span>
+          <span class="text-xs px-3 py-1 bg-zinc-800 rounded-full">Excel</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="bg-zinc-900 py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-12 text-center">Skills & Tools</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="glass p-6 rounded-3xl"><i class="fas fa-database text-4xl text-cyan-400 mb-4"></i><p>Advanced SQL</p></div>
+        <div class="glass p-6 rounded-3xl"><i class="fas fa-chart-pie text-4xl text-cyan-400 mb-4"></i><p>Power BI + DAX</p></div>
+        <div class="glass p-6 rounded-3xl"><i class="fas fa-file-excel text-4xl text-cyan-400 mb-4"></i><p>Excel Mastery</p></div>
+        <div class="glass p-6 rounded-3xl"><i class="fas fa-python text-4xl text-cyan-400 mb-4"></i><p>Python Analytics</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-24 max-w-2xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-8">Let's Build Better Decisions Together</h2>
+    <p class="text-zinc-400 mb-10">Open to opportunities, collaborations, or just a chat about analytics.</p>
+    <a href="mailto:contactrdx01@gmail.com" class="inline-block px-10 py-5 bg-cyan-500 hover:bg-cyan-600 text-black rounded-2xl text-lg font-medium transition">contactrdx01@gmail.com</a>
+    <div class="mt-12 flex justify-center gap-8 text-3xl">
+      <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" class="hover:text-cyan-400"><i class="fab fa-linkedin"></i></a> <!-- Update if needed -->
+      <a href="https://github.com/Mightyrdx" target="_blank" class="hover:text-cyan-400"><i class="fab fa-github"></i></a>
+    </div>
+  </section>
+
+  <footer class="text-center py-12 text-zinc-500 text-sm border-t border-zinc-800">
+    © 2026 Rudra Dev • Built with data & ❤️
+  </footer>
 
   <script>
-    // ==================== LOADER LOGIC ====================
+    // Loader logic
     function createBinaryRain() {
       const rain = document.getElementById('binary-rain');
+      if (!rain) return;
       rain.innerHTML = '';
-      for (let i = 0; i < 140; i++) {
+      for (let i = 0; i < 120; i++) {
         const drop = document.createElement('div');
         drop.textContent = Math.random() > 0.5 ? '1' : '0';
         drop.style.left = Math.random() * 100 + '%';
-        drop.style.animationDuration = (1.6 + Math.random() * 2.4) + 's';
-        drop.style.animationDelay = '-' + (Math.random() * 4) + 's';
-        drop.style.fontSize = (13 + Math.random() * 19) + 'px';
-        drop.style.opacity = 0.35 + Math.random() * 0.65;
+        drop.style.animationDuration = (2 + Math.random() * 3) + 's';
+        drop.style.animationDelay = '-' + (Math.random() * 5) + 's';
+        drop.style.fontSize = (12 + Math.random() * 20) + 'px';
+        drop.style.opacity = 0.3 + Math.random() * 0.6;
         drop.className = 'binary-drop';
         rain.appendChild(drop);
       }
@@ -99,108 +230,89 @@
     function startProgress() {
       let progress = 0;
       const bar = document.getElementById('progress');
+      if (!bar) return;
       const interval = setInterval(() => {
-        progress += 3.5 + Math.random() * 7;
-        if (progress > 100) progress = 100;
-        bar.style.width = progress + '%';
-
+        progress += 4 + Math.random() * 8;
         if (progress >= 100) {
+          progress = 100;
           clearInterval(interval);
           triggerGraphTransition();
         }
-      }, 65);
+        bar.style.width = progress + '%';
+      }, 60);
     }
 
     function triggerGraphTransition() {
       const scan = document.getElementById('scan-container');
       const trans = document.getElementById('transition-container');
       const rain = document.getElementById('binary-rain');
+      if (!scan || !trans) return;
 
-      scan.style.transition = 'opacity 0.7s';
       scan.style.opacity = '0';
-
       setTimeout(() => {
         scan.style.display = 'none';
-        rain.style.transition = 'opacity 1.2s';
-        rain.style.opacity = '0.18';           // subtle data background stays
-
+        if (rain) rain.style.opacity = '0.15';
         trans.style.display = 'flex';
-        setTimeout(() => trans.style.opacity = '1', 50);
+        setTimeout(() => trans.style.opacity = '1', 100);
 
-        // === TRANSITION GRAPH ===
-        const ctx = document.getElementById('transitionChart').getContext('2d');
-        new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: ['Repeat Tickets', 'Manual Effort', 'Critical Cases', 'SLA Visibility'],
-            datasets: [{
-              label: 'Improvement',
-              data: [15, 30, 35, 40],
-              borderColor: '#22d3ee',
-              backgroundColor: 'rgba(34, 211, 238, 0.08)',
-              borderWidth: 6,
-              tension: 0.35,
-              pointRadius: 6,
-              pointBackgroundColor: '#fff'
-            }]
-          },
-          options: {
-            responsive: true,
-            animation: { duration: 2600, easing: 'easeOutQuart' },
-            plugins: {
-              legend: { display: false },
-              title: {
-                display: true,
-                text: 'Your Real Impact',
-                color: '#a3a3a3',
-                font: { size: 17, weight: '500' }
-              }
+        const ctx = document.getElementById('transitionChart')?.getContext('2d');
+        if (ctx) {
+          new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: ['Repeat Tickets', 'Manual Effort', 'Critical Cases', 'Efficiency Gain'],
+              datasets: [{ label: 'Improvement', data: [15, 30, 35, 40], borderColor: '#22d3ee', backgroundColor: 'rgba(34,211,238,0.1)', borderWidth: 5, tension: 0.4, pointRadius: 5 }]
             },
-            scales: {
-              y: { min: 0, max: 45, ticks: { color: '#52525b', callback: v => v + '%' }, grid: { color: '#27272a' } },
-              x: { ticks: { color: '#52525b' }, grid: { color: '#27272a' } }
-            }
-          }
-        });
-      }, 800);
+            options: { responsive: true, animation: { duration: 2200 }, plugins: { legend: { display: false } }, scales: { y: { min: 0, max: 50, ticks: { color: '#71717a' } }, x: { ticks: { color: '#71717a' } } } }
+          });
+        }
+      }, 700);
 
-      // Final fade out of loader
       setTimeout(() => {
-        document.getElementById('loader').style.opacity = '0';
-        setTimeout(() => {
-          document.getElementById('loader').style.display = 'none';
-        }, 1300);
-      }, 3800);
+        const loader = document.getElementById('loader');
+        if (loader) {
+          loader.style.opacity = '0';
+          setTimeout(() => loader.style.display = 'none', 1200);
+        }
+      }, 4200);
     }
 
-    // ==================== SITE INIT (runs after loader hides) ====================
-    window.onload = () => {
+    // Init
+    window.addEventListener('load', () => {
       createBinaryRain();
       startProgress();
 
-      // Your original counters & project charts
-      function animateCounter(id, target, suffix = "", duration = 1800) {
-        let start = 0;
-        const increment = target / (duration / 16);
+      // Counters
+      function animateCounter(id, target, suffix = '', duration = 2000) {
         const el = document.getElementById(id);
+        if (!el) return;
+        let start = 0;
+        const step = target / (duration / 16);
         const timer = setInterval(() => {
-          start += increment;
+          start += step;
           if (start >= target) {
             el.textContent = Math.floor(target) + suffix;
             clearInterval(timer);
-          } else el.textContent = Math.floor(start) + suffix;
+          } else {
+            el.textContent = Math.floor(start) + suffix;
+          }
         }, 16);
       }
+      animateCounter('stat1', 15000);
+      animateCounter('stat2', 35, '%');
+      animateCounter('stat3', 40, '%');
+      animateCounter('stat4', 2, '+');
 
-      animateCounter("stat1", 15000);
-      animateCounter("stat2", 35, "%");
-      animateCounter("stat3", 40, "%");
-      animateCounter("stat4", 2, "+");
-
-      // Project charts (same as before)
-      new Chart(document.getElementById("healthChart"), { type: "doughnut", /* ... your previous config */ });
-      new Chart(document.getElementById("bizChart"), { type: "bar", /* ... your previous config */ });
-    };
+      // Project charts
+      const healthCtx = document.getElementById('healthChart')?.getContext('2d');
+      if (healthCtx) {
+        new Chart(healthCtx, { type: 'doughnut', data: { labels: ['High-Risk', 'Medium', 'Low'], datasets: [{ data: [35, 45, 20], backgroundColor: ['#22d3ee','#67e8f9','#a5f3fc'] }] }, options: { plugins: { legend: { position: 'bottom', labels: { color: '#a1a1aa' } } } } });
+      }
+      const bizCtx = document.getElementById('bizChart')?.getContext('2d');
+      if (bizCtx) {
+        new Chart(bizCtx, { type: 'bar', data: { labels: ['Manual', 'Automated'], datasets: [{ label: 'Effort', data: [100, 60], backgroundColor: ['#64748b','#22d3ee'] }] }, options: { plugins: { legend: { display: false } }, scales: { y: { grid: { color: '#27272a' } } } } });
+      }
+    });
   </script>
 </body>
 </html>
